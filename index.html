@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Week 1-4 + Local Search | Shareable Mega Notes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            scroll-behavior: smooth;
+        }
+        .note-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 1rem;
+            background: white;
+        }
+        .mono {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+    <div class="max-w-7xl mx-auto px-4 lg:px-8 py-8 lg:py-10">
+        <header class="mb-8">
+            <div class="note-card p-6 lg:p-8">
+                <p class="text-xs uppercase tracking-wider text-indigo-600 font-semibold">Artificial Intelligence Study Companion</p>
+                <h1 class="text-3xl lg:text-5xl font-extrabold mt-2 leading-tight">Week 1 to Week 4 + Local Search<br>Comprehensive Share Notes</h1>
+                <p class="mt-4 text-slate-600 max-w-4xl">
+                    This page is rebuilt from your local lecture files: Week 1 foundations, intelligent agents, Week 2 search agents,
+                    Week 3 uninformed search, Week 4 informed search, and Week 4b local search.
+                    It is designed so you can directly share it with friends before quizzes/exams.
+                </p>
+                <div class="mt-5 flex flex-wrap gap-2 text-xs">
+                    <span class="px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 font-semibold">W1: Intro + Agents</span>
+                    <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 font-semibold">W2: Search Formulation</span>
+                    <span class="px-3 py-1 rounded-full bg-amber-100 text-amber-700 font-semibold">W3: Uninformed</span>
+                    <span class="px-3 py-1 rounded-full bg-rose-100 text-rose-700 font-semibold">W4: Informed + Local</span>
+                </div>
+                <div class="mt-6 flex flex-wrap gap-3">
+                    <a href="#week1" class="px-4 py-2 rounded-lg bg-slate-900 text-white text-sm font-semibold">Start Reading</a>
+                    <button id="copySummary" class="px-4 py-2 rounded-lg border border-slate-300 text-sm font-semibold hover:bg-slate-100">Copy Quick Summary</button>
+                </div>
+            </div>
+        </header>
+
+        <section class="mb-8">
+            <div class="note-card p-4 lg:p-6">
+                <h2 class="text-xl font-bold mb-3">Lecture Files Explored</h2>
+                <div class="grid md:grid-cols-2 gap-2 text-sm text-slate-700">
+                    <div>• Week-1-Introduction to AI.pdf</div>
+                    <div>• Week-1b-Intelligent Agents.pdf</div>
+                    <div>• Week-1C-Environement Types with real example.pptx</div>
+                    <div>• Week-1D-Intelligent_Agents_Types.pptx</div>
+                    <div>• Week-2-Search Agents.pdf</div>
+                    <div>• Week-3-Search Agents-Uninformed Search.pdf</div>
+                    <div>• Week-4-Search Agents-Informed Search.pdf</div>
+                    <div>• Week-4b-Local Search.pdf</div>
+                </div>
+            </div>
+        </section>
+
+        <nav class="sticky top-2 z-40 mb-8">
+            <div class="note-card p-3 bg-white/95 backdrop-blur">
+                <div class="flex flex-wrap gap-2 text-xs lg:text-sm font-semibold">
+                    <a href="#week1" class="px-3 py-1 rounded-md bg-indigo-50 text-indigo-700">Week 1</a>
+                    <a href="#week2" class="px-3 py-1 rounded-md bg-emerald-50 text-emerald-700">Week 2</a>
+                    <a href="#week3" class="px-3 py-1 rounded-md bg-amber-50 text-amber-700">Week 3</a>
+                    <a href="#week4" class="px-3 py-1 rounded-md bg-rose-50 text-rose-700">Week 4</a>
+                    <a href="#local-search" class="px-3 py-1 rounded-md bg-fuchsia-50 text-fuchsia-700">Local Search</a>
+                    <a href="#compare" class="px-3 py-1 rounded-md bg-cyan-50 text-cyan-700">Comparison</a>
+                    <a href="#revision" class="px-3 py-1 rounded-md bg-slate-100 text-slate-700">Revision Pack</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="space-y-8" id="megaNotesText">
+
+            <section id="week1" class="note-card p-6 lg:p-8">
+                <h2 class="text-2xl lg:text-3xl font-extrabold text-indigo-700">Week 1 — Introduction to AI + Intelligent Agents</h2>
+                <p class="mt-3 text-slate-600">Core theme: AI focuses on designing rational intelligent agents that perceive environments and act to maximize performance.</p>
+
+                <div class="mt-6 grid lg:grid-cols-2 gap-6">
+                    <div class="note-card p-5">
+                        <h3 class="font-bold text-lg">Important AI Definitions (from lecture)</h3>
+                        <ul class="mt-3 text-sm space-y-2 text-slate-700">
+                            <li>• “Intelligence: ability to learn and solve problems” (Webster perspective).</li>
+                            <li>• “AI is intelligence exhibited by machines/software” (Wikipedia style).</li>
+                            <li>• “Science and engineering of making intelligent machines” (McCarthy).</li>
+                            <li>• Russell & Norvig direction: design intelligent agents that perceive and act for success.</li>
+                        </ul>
+                    </div>
+
+                    <div class="note-card p-5">
+                        <h3 class="font-bold text-lg">Four Classical AI Approaches</h3>
+                        <ul class="mt-3 text-sm space-y-2 text-slate-700">
+                            <li>• Thinking humanly (cognitive modeling).</li>
+                            <li>• Acting humanly (Turing test perspective).</li>
+                            <li>• Thinking rationally (laws of thought, logic-heavy).</li>
+                            <li>• Acting rationally (choose actions maximizing expected performance).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-6 note-card p-5">
+                    <h3 class="font-bold text-lg">Applications Mentioned</h3>
+                    <p class="text-sm text-slate-600 mt-1">Speech recognition, virtual assistants, handwriting recognition, machine translation, robotics, recommendation systems, search engines, email filtering, face detection/recognition, cancer imaging, game playing (Deep Blue/Watson/AlphaGo), autonomous driving, scheduling, fraud detection, NLP, medical diagnosis, route finding, protein design, document summarization.</p>
+                </div>
+
+                <div class="mt-6 grid lg:grid-cols-2 gap-6">
+                    <div class="note-card p-5">
+                        <h3 class="font-bold text-lg">Foundations of AI</h3>
+                        <ul class="mt-3 text-sm space-y-1 text-slate-700">
+                            <li>• Philosophy (reasoning, rationality, mind).</li>
+                            <li>• Mathematics (logic, probability, computation).</li>
+                            <li>• Economics (decision theory, game theory, MDPs).</li>
+                            <li>• Neuroscience + Psychology (thinking and behavior models).</li>
+                            <li>• Computer engineering (hardware/system capability).</li>
+                            <li>• Control theory/cybernetics and linguistics (feedback + language).</li>
+                        </ul>
+                    </div>
+
+                    <div class="note-card p-5">
+                        <h3 class="font-bold text-lg">History Snapshot</h3>
+                        <ul class="mt-3 text-sm space-y-1 text-slate-700">
+                            <li>• 1940–1950: Gestation (McCulloch-Pitts, Turing foundations).</li>
+                            <li>• 1950–1970: Early enthusiasm (Dartmouth 1956, symbolic AI boom).</li>
+                            <li>• 1970–1990: Knowledge-based AI + expert systems + AI winter.</li>
+                            <li>• 1990–present: Scientific AI revival, probabilistic models, data-driven AI, deep learning.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-6 grid lg:grid-cols-2 gap-6">
+                    <div class="note-card p-5">
+                        <h3 class="font-bold text-lg">Intelligent Agent Basics</h3>
+                        <ul class="mt-3 text-sm space-y-1 text-slate-700">
+                            <li>• Agent = Architecture + Program.</li>
+                            <li>• Sense → Think → Act loop.</li>
+                            <li>• Agent function maps percept sequence to action.</li>
+                            <li>• Rational agent picks action maximizing expected performance measure.</li>
+                            <li>• Rationality depends on task measure, prior knowledge, available actions, and percept history.</li>
+                        </ul>
+                    </div>
+
+                    <div class="note-card p-5">
+                        <h3 class="font-bold text-lg">PEAS (Task Environment Spec)</h3>
+                        <ul class="mt-3 text-sm space-y-1 text-slate-700">
+                            <li>• P: Performance measure</li>
+                            <li>• E: Environment</li>
+                            <li>• A: Actuators</li>
+                            <li>• S: Sensors</li>
+                        </ul>
+                        <p class="mt-3 text-sm text-slate-600"><span class="font-semibold">Self-driving car example:</span> Performance (safety/time/legal/comfort), Environment (roads, cars, signs), Actuators (steering, brake, accelerator), Sensors (camera, GPS, sonar, odometer, etc.).</p>
+                    </div>
+                </div>
+
+                <div class="mt-6 note-card p-5 overflow-x-auto">
+                    <h3 class="font-bold text-lg mb-3">Environment Types with Quick Examples (Week-1C)</h3>
+                    <table class="w-full text-sm border-collapse">
+                        <thead>
+                            <tr class="bg-slate-100 text-left">
+                                <th class="p-2 border">Type</th>
+                                <th class="p-2 border">Meaning</th>
+                                <th class="p-2 border">Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="p-2 border">Fully vs Partially observable</td><td class="p-2 border">Complete vs incomplete state visibility</td><td class="p-2 border">Clear room vs dark room with flashlight</td></tr>
+                            <tr><td class="p-2 border">Deterministic vs Stochastic</td><td class="p-2 border">Predictable vs uncertain outcomes</td><td class="p-2 border">Rule-based transitions vs random effects</td></tr>
+                            <tr><td class="p-2 border">Episodic vs Sequential</td><td class="p-2 border">Independent steps vs future-dependent actions</td><td class="p-2 border">Single-round decisions vs chess planning</td></tr>
+                            <tr><td class="p-2 border">Static vs Dynamic</td><td class="p-2 border">World unchanged vs changing during deliberation</td><td class="p-2 border">Image analysis vs drone flight control</td></tr>
+                            <tr><td class="p-2 border">Discrete vs Continuous</td><td class="p-2 border">Finite states/actions vs smooth spaces</td><td class="p-2 border">Tic-tac-toe vs driving/drone motion</td></tr>
+                            <tr><td class="p-2 border">Single vs Multi-agent</td><td class="p-2 border">One actor vs interacting agents</td><td class="p-2 border">Solo maze vs team gameplay</td></tr>
+                            <tr><td class="p-2 border">Competitive/Coop/Mixed</td><td class="p-2 border">Conflict vs collaboration vs blend</td><td class="p-2 border">Trading bots / swarm robotics / multiplayer games</td></tr>
+                            <tr><td class="p-2 border">Adversarial</td><td class="p-2 border">Environment actively works against agent</td><td class="p-2 border">Cybersecurity defense and fraud detection</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-6 note-card p-5 overflow-x-auto">
+                    <h3 class="font-bold text-lg mb-3">Agent Types (Week-1D)</h3>
+                    <table class="w-full text-sm border-collapse">
+                        <thead>
+                            <tr class="bg-slate-100 text-left">
+                                <th class="p-2 border">Agent Type</th>
+                                <th class="p-2 border">Core Idea</th>
+                                <th class="p-2 border">Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="p-2 border">Simple Reflex</td><td class="p-2 border">Current percept only</td><td class="p-2 border">Automatic sanitizer / thermostat</td></tr>
+                            <tr><td class="p-2 border">Model-based Reflex</td><td class="p-2 border">Uses internal state model</td><td class="p-2 border">Autopilot with world model</td></tr>
+                            <tr><td class="p-2 border">Goal-based</td><td class="p-2 border">Searches/plans to reach explicit goals</td><td class="p-2 border">Delivery robot route planning</td></tr>
+                            <tr><td class="p-2 border">Utility-based</td><td class="p-2 border">Chooses action maximizing expected utility</td><td class="p-2 border">Scheduling assistant optimizing convenience</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="week2" class="note-card p-6 lg:p-8">
+                <h2 class="text-2xl lg:text-3xl font-extrabold text-emerald-700">Week 2 — Search Agents and Problem Formulation</h2>
+                <p class="mt-3 text-slate-600">Core theme: convert a real problem into a formal search problem and then choose a strategy to explore it.</p>
+
+                <div class="mt-6 note-card p-5">
+                    <h3 class="font-bold text-lg">Problem Solving as Search (2-stage)</h3>
+                    <ol class="mt-3 text-sm space-y-1 list-decimal pl-5 text-slate-700">
+                        <li>Search phase (offline/mental exploration of possible actions).</li>
+                        <li>Execution phase (apply found solution).</li>
+                    </ol>
+                </div>
+
+                <div class="mt-6 note-card p-5">
+                    <h3 class="font-bold text-lg">Problem Formulation Components</h3>
+                    <ul class="mt-3 text-sm space-y-1 text-slate-700">
+                        <li>• Initial state</li>
+                        <li>• State space (all reachable states)</li>
+                        <li>• Action space / Actions(s)</li>
+                        <li>• Transition model Result(s, a)</li>
+                        <li>• Goal test</li>
+                        <li>• Path cost function</li>
+                    </ul>
+                </div>
+
+                <div class="mt-6 grid lg:grid-cols-2 gap-6">
+                    <div class="note-card p-5">
+                        <h3 class="font-bold text-lg">Canonical Examples</h3>
+                        <ul class="mt-3 text-sm space-y-1 text-slate-700">
+                            <li>• 8-Queens (arrangements with non-attacking queens).</li>
+                            <li>• 8-Puzzle (tile configurations and legal moves).</li>
+                            <li>• Route finding (city-to-city on weighted graph).</li>
+                            <li>• Traveling Salesperson (visit all cities shortest tour).</li>
+                            <li>• VLSI layout and automatic assembly sequencing.</li>
+                            <li>• Robot navigation in 2D/3D continuous spaces.</li>
+                            <li>• Protein design by sequence search.</li>
+                        </ul>
+                    </div>
+
+                    <div class="note-card p-5">
+                        <h3 class="font-bold text-lg">State Space vs Search Space</h3>
+                        <ul class="mt-3 text-sm space-y-1 text-slate-700">
+                            <li>• State space = real problem configurations.</li>
+                            <li>• Search space = abstract tree/graph explored by algorithm.</li>
+                            <li>• Node stores parent, depth, state, and path cost.</li>
+                            <li>• Expand(node): generates child nodes from available actions.</li>
+                        </ul>
+                        <p class="mt-3 text-xs text-slate-500">Search regions: Explored (closed), Frontier (open/fringe), Unexplored.</p>
+                    </div>
+                </div>
+
+                <div class="mt-6 note-card p-5">
+                    <h3 class="font-bold text-lg">How Search Strategies Are Evaluated</h3>
+                    <div class="mt-3 grid md:grid-cols-2 gap-3 text-sm text-slate-700">
+                        <div class="p-3 bg-slate-100 rounded-lg">Completeness: does it always find a solution if one exists?</div>
+                        <div class="p-3 bg-slate-100 rounded-lg">Optimality: does it always return least-cost solution?</div>
+                        <div class="p-3 bg-slate-100 rounded-lg">Time complexity: number of generated/expanded nodes.</div>
+                        <div class="p-3 bg-slate-100 rounded-lg">Space complexity: max nodes held in memory.</div>
+                    </div>
+                    <p class="mt-3 text-sm text-slate-600">Complexity symbols used in class: <span class="mono">b</span> (branching factor), <span class="mono">d</span> (depth of shallowest solution), <span class="mono">m</span> (max depth).</p>
+                </div>
+            </section>
+
+            <section id="week3" class="note-card p-6 lg:p-8">
+                <h2 class="text-2xl lg:text-3xl font-extrabold text-amber-700">Week 3 — Uninformed Search (Blind Search)</h2>
+                <p class="mt-3 text-slate-600">Core theme: no heuristic/domain estimate is used. Expansion order defines behavior.</p>
+
+                <div class="mt-6 note-card p-5 overflow-x-auto">
+                    <h3 class="font-bold text-lg mb-3">Uninformed Algorithms Cheat Matrix</h3>
+                    <table class="w-full text-sm border-collapse">
+                        <thead>
+                            <tr class="bg-slate-100 text-left">
+                                <th class="p-2 border">Algorithm</th>
+                                <th class="p-2 border">Node Priority</th>
+                                <th class="p-2 border">Data Structure</th>
+                                <th class="p-2 border">Complete?</th>
+                                <th class="p-2 border">Optimal?</th>
+                                <th class="p-2 border">Time</th>
+                                <th class="p-2 border">Space</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="p-2 border font-semibold">BFS</td>
+                                <td class="p-2 border">Shallowest depth first</td>
+                                <td class="p-2 border">FIFO Queue</td>
+                                <td class="p-2 border">Yes (finite b)</td>
+                                <td class="p-2 border">Yes if step costs equal</td>
+                                <td class="p-2 border mono">O(b^d)</td>
+                                <td class="p-2 border mono">O(b^d)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 border font-semibold">DFS</td>
+                                <td class="p-2 border">Deepest node first</td>
+                                <td class="p-2 border">LIFO Stack</td>
+                                <td class="p-2 border">No in infinite-depth loops</td>
+                                <td class="p-2 border">No</td>
+                                <td class="p-2 border mono">O(b^m)</td>
+                                <td class="p-2 border mono">O(bm)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 border font-semibold">DLS</td>
+                                <td class="p-2 border">DFS up to limit <span class="mono">l</span></td>
+                                <td class="p-2 border">Stack + cutoff</td>
+                                <td class="p-2 border">If <span class="mono">l ≥ d</span></td>
+                                <td class="p-2 border">No</td>
+                                <td class="p-2 border mono">O(b^l)</td>
+                                <td class="p-2 border mono">O(bl)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 border font-semibold">IDS</td>
+                                <td class="p-2 border">Repeated DLS with growing limits</td>
+                                <td class="p-2 border">Stack per iteration</td>
+                                <td class="p-2 border">Yes</td>
+                                <td class="p-2 border">Yes (unit costs)</td>
+                                <td class="p-2 border mono">O(b^d)</td>
+                                <td class="p-2 border mono">O(bd)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 border font-semibold">UCS</td>
+                                <td class="p-2 border">Least path cost <span class="mono">g(n)</span></td>
+                                <td class="p-2 border">Priority Queue (min-heap)</td>
+                                <td class="p-2 border">Yes (finite optimal cost)</td>
+                                <td class="p-2 border">Yes</td>
+                                <td class="p-2 border mono">O(b^(C*/ε))</td>
+                                <td class="p-2 border mono">O(b^(C*/ε))</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-6 grid lg:grid-cols-2 gap-6">
+                    <div class="note-card p-5">
+                        <h3 class="font-bold text-lg">Important Lecture Notes</h3>
+                        <ul class="mt-3 text-sm space-y-1 text-slate-700">
+                            <li>• BFS is complete but memory explodes quickly with depth.</li>
+                            <li>• DFS has tiny memory footprint but may miss shallow optimal paths.</li>
+                            <li>• IDS combines BFS completeness + DFS low memory for unit-cost graphs.</li>
+                            <li>• UCS handles weighted edges and can beat BFS in cost quality.</li>
+                            <li>• UCS explores by increasing path cost, not level depth.</li>
+                        </ul>
+                    </div>
+
+                    <div class="note-card p-5">
+                        <h3 class="font-bold text-lg">Map Example (Start: Las Vegas, Goal: Calgary)</h3>
+                        <p class="text-sm text-slate-700 mt-3"><span class="font-semibold">BFS visit order:</span> Las Vegas, Los Angeles, Salt Lake City, El Paso, Phoenix, San Francisco, Denver, Helena, Portland, Dallas, Santa Fe, Kansas City, Omaha, Calgary.</p>
+                        <p class="text-sm text-slate-700 mt-3"><span class="font-semibold">DFS visit order:</span> Las Vegas, Los Angeles, El Paso, Dallas, Houston, New Orleans, Atlanta, Charleston, Nashville, Saint Louis, Chicago, Duluth, Helena, Calgary.</p>
+                        <p class="text-sm text-slate-700 mt-3"><span class="font-semibold">UCS visit order:</span> Las Vegas, Los Angeles, Salt Lake City, San Francisco, Phoenix, Denver, Helena, El Paso, Santa Fe, Portland, Seattle, Omaha, Kansas City, Calgary.</p>
+                    </div>
+                </div>
+
+                <div class="mt-6 note-card p-5">
+                    <h3 class="font-bold text-lg">Memory Perspective from Lecture</h3>
+                    <p class="mt-3 text-sm text-slate-700">At branching factor 10 and depth 16, lecture comparison highlights massive BFS memory (~exabytes) versus much smaller DFS memory (kilobytes scale on the shown setup). This is why DFS-like methods are still useful despite suboptimality risk.</p>
+                </div>
+            </section>
+
+            <section id="week4" class="note-card p-6 lg:p-8">
+                <h2 class="text-2xl lg:text-3xl font-extrabold text-rose-700">Week 4 — Informed Search (Heuristic Search)</h2>
+                <p class="mt-3 text-slate-600">Core theme: use domain knowledge (heuristics) to guide expansion toward goals faster.</p>
+
+                <div class="mt-6 grid lg:grid-cols-2 gap-6">
+                    <div class="note-card p-5">
+                        <h3 class="font-bold text-lg">Heuristic Function Essentials</h3>
+                        <ul class="mt-3 text-sm space-y-1 text-slate-700">
+                            <li>• <span class="mono">h(n)</span>: estimated cost from node <span class="mono">n</span> to nearest goal.</li>
+                            <li>• Heuristic can be imperfect; it only needs to be informative.</li>
+                            <li>• Better-quality heuristics reduce search effort significantly.</li>
+                            <li>• Example used in lecture map: straight-line distance to target city.</li>
+                        </ul>
+                    </div>
+
+                    <div class="note-card p-5">
+                        <h3 class="font-bold text-lg">Greedy vs A*</h3>
+                        <ul class="mt-3 text-sm space-y-2 text-slate-700">
+                            <li>• Greedy Best-First: <span class="mono">f(n)=h(n)</span> (chases estimated closeness only).</li>
+                            <li>• A*: <span class="mono">f(n)=g(n)+h(n)</span> (balances traveled cost + estimated remainder).</li>
+                            <li>• Greedy can be fast but not guaranteed optimal.</li>
+                            <li>• A* is complete and optimal with admissible heuristic.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-6 note-card p-5">
+                    <h3 class="font-bold text-lg">Admissible Heuristics</h3>
+                    <p class="mt-3 text-sm text-slate-700">A heuristic is admissible if it never overestimates true remaining cost:</p>
+                    <p class="mono mt-2 p-3 rounded-lg bg-slate-100 text-sm">h(n) ≤ h*(n)</p>
+                    <p class="mt-3 text-sm text-slate-700">Lecture emphasizes that if <span class="mono">h</span> is admissible, A* tree search is optimal. Intuition: A* will always prioritize nodes that could still lead to a cheaper optimal goal than any known suboptimal goal node.</p>
+                </div>
+
+                <div class="mt-6 grid lg:grid-cols-2 gap-6">
+                    <div class="note-card p-5">
+                        <h3 class="font-bold text-lg">8-Puzzle Heuristics from Slides</h3>
+                        <ul class="mt-3 text-sm space-y-1 text-slate-700">
+                            <li>• <span class="mono">h1</span>: number of misplaced tiles.</li>
+                            <li>• <span class="mono">h2</span>: total Manhattan distance.</li>
+                            <li>• Manhattan estimate shown as non-overestimating for the example state.</li>
+                        </ul>
+                    </div>
+
+                    <div class="note-card p-5">
+                        <h3 class="font-bold text-lg">Lecture Recap Pairings</h3>
+                        <ul class="mt-3 text-sm space-y-1 text-slate-700">
+                            <li>• BFS (layers by depth) ↔ IDS (subtrees by depth limit).</li>
+                            <li>• UCS uses increasing path cost.</li>
+                            <li>• Greedy uses increasing heuristic value.</li>
+                            <li>• A* uses increasing <span class="mono">g+h</span>.</li>
+                            <li>• IDA* does iterative deepening over <span class="mono">g+h</span> thresholds.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="local-search" class="note-card p-6 lg:p-8">
+                <h2 class="text-2xl lg:text-3xl font-extrabold text-fuchsia-700">Week 4b — Local Search Deep Dive</h2>
+                <p class="mt-3 text-slate-600">Core theme: when path does not matter, optimize states directly using iterative improvement.</p>
+
+                <div class="mt-6 note-card p-5">
+                    <h3 class="font-bold text-lg">When Local Search Is Preferred</h3>
+                    <ul class="mt-3 text-sm space-y-1 text-slate-700">
+                        <li>• Path to goal is irrelevant; only final state quality matters.</li>
+                        <li>• Systematic tree search is too expensive or impossible.</li>
+                        <li>• Very large/continuous optimization landscapes.</li>
+                        <li>• Memory constraints are tight.</li>
+                    </ul>
+                    <p class="mt-3 text-sm text-slate-600">Lecture examples: integrated circuit design, telecom optimization, puzzle final configurations (e.g., 8-queens), etc.</p>
+                </div>
+
+                <div class="mt-6 grid lg:grid-cols-2 gap-6">
+                    <div class="note-card p-5">
+                        <h3 class="font-bold text-lg">Hill Climbing</h3>
+                        <ul class="mt-3 text-sm space-y-1 text-slate-700">
+                            <li>• Greedy local search: keep one current state.</li>
+                            <li>• Move to a better neighbor (uphill for maximization).</li>
+                            <li>• Stops at local max / plateau / no improving move.</li>
+                            <li>• Very low memory, often fast to get good-enough answer.</li>
+                        </ul>
+                        <p class="mt-3 text-sm"><span class="font-semibold">Common issues:</span> local maxima, plateaus, ridges/flat regions.</p>
+                    </div>
+
+                    <div class="note-card p-5">
+                        <h3 class="font-bold text-lg">Hill Climbing Variants</h3>
+                        <ul class="mt-3 text-sm space-y-1 text-slate-700">
+                            <li>• Sideways moves: allow equal-value moves to escape plateaus.</li>
+                            <li>• Random-restart: run hill climbing repeatedly from random starts.</li>
+                            <li>• Stochastic hill climbing: pick random improving move.</li>
+                            <li>• Local beam search: maintain <span class="mono">k</span> states in parallel.</li>
+                            <li>• Stochastic beam search: sample successors probabilistically.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-6 grid lg:grid-cols-2 gap-6">
+                    <div class="note-card p-5">
+                        <h3 class="font-bold text-lg">Simulated Annealing (concept)</h3>
+                        <ul class="mt-3 text-sm space-y-1 text-slate-700">
+                            <li>• Inspired by physical annealing/cooling.</li>
+                            <li>• Allows occasional worse moves early to escape local traps.</li>
+                            <li>• As temperature drops, bad-move probability decreases.</li>
+                            <li>• Good for rugged landscapes where greedy gets stuck.</li>
+                        </ul>
+                        <p class="mono mt-3 p-3 rounded-lg bg-slate-100 text-sm">P(accept worse move) ≈ exp(-ΔE / T)</p>
+                    </div>
+
+                    <div class="note-card p-5">
+                        <h3 class="font-bold text-lg">Genetic Algorithms (GA)</h3>
+                        <ul class="mt-3 text-sm space-y-1 text-slate-700">
+                            <li>• Population-based search (multiple individuals).</li>
+                            <li>• Fitness function evaluates candidate quality.</li>
+                            <li>• Parent selection favors fitter individuals.</li>
+                            <li>• Crossover combines parent strings to create offspring.</li>
+                            <li>• Mutation adds random diversity to avoid premature convergence.</li>
+                        </ul>
+                        <p class="mt-3 text-sm text-slate-600">Lecture 8-queens encoding: string of digits for queen row by column; fitness can be number of non-attacking pairs (max = 28).</p>
+                    </div>
+                </div>
+
+                <div class="mt-6 grid lg:grid-cols-2 gap-6">
+                    <div class="note-card p-5">
+                        <h3 class="font-bold text-lg">Hill Climbing Skeleton</h3>
+                        <pre class="mt-3 p-3 rounded-lg bg-slate-900 text-slate-100 text-xs overflow-x-auto">current = random_initial_state()
+while True:
+    neighbor = best_neighbor(current)
+    if value(neighbor) <= value(current):
+        return current
+    current = neighbor</pre>
+                    </div>
+                    <div class="note-card p-5">
+                        <h3 class="font-bold text-lg">Genetic Algorithm Skeleton</h3>
+                        <pre class="mt-3 p-3 rounded-lg bg-slate-900 text-slate-100 text-xs overflow-x-auto">population = init_random_population(k)
+repeat until stop_condition:
+    parents = select_by_fitness(population)
+    children = crossover(parents)
+    children = mutate(children, prob)
+    population = survivor_selection(population, children)
+return best_individual(population)</pre>
+                    </div>
+                </div>
+            </section>
+
+            <section id="compare" class="note-card p-6 lg:p-8">
+                <h2 class="text-2xl lg:text-3xl font-extrabold text-cyan-700">Systematic vs Local Search — Fast Comparison</h2>
+                <div class="mt-6 overflow-x-auto">
+                    <table class="w-full text-sm border-collapse">
+                        <thead>
+                            <tr class="bg-slate-100 text-left">
+                                <th class="p-2 border">Dimension</th>
+                                <th class="p-2 border">Systematic Search (BFS/DFS/UCS/A*)</th>
+                                <th class="p-2 border">Local Search (HC/SA/GA/Beam)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="p-2 border">State tracking</td><td class="p-2 border">Maintains tree/graph frontier and explored set</td><td class="p-2 border">Usually tracks 1 state or a small population</td></tr>
+                            <tr><td class="p-2 border">Output focus</td><td class="p-2 border">Action path + goal state</td><td class="p-2 border">Best goal/configuration state</td></tr>
+                            <tr><td class="p-2 border">Memory</td><td class="p-2 border">Can be very high (e.g., BFS, A*)</td><td class="p-2 border">Usually low to moderate</td></tr>
+                            <tr><td class="p-2 border">Guarantees</td><td class="p-2 border">Can be complete/optimal with assumptions</td><td class="p-2 border">Often approximate, no strict optimality guarantee</td></tr>
+                            <tr><td class="p-2 border">Use case</td><td class="p-2 border">Path planning and exact search</td><td class="p-2 border">Large-scale optimization and good-enough solutions</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="revision" class="note-card p-6 lg:p-8">
+                <h2 class="text-2xl lg:text-3xl font-extrabold text-slate-800">Revision Pack (Quick Exam Prep)</h2>
+
+                <div class="mt-6 note-card p-5">
+                    <h3 class="font-bold text-lg">High-Value One-Liners</h3>
+                    <ul class="mt-3 text-sm space-y-1 text-slate-700">
+                        <li>• Rational agent chooses actions that maximize expected performance measure.</li>
+                        <li>• PEAS is the full task-environment specification for agent design.</li>
+                        <li>• Search problem = initial state + actions + transition + goal test + path cost.</li>
+                        <li>• BFS is complete/optimal (unit costs) but memory-expensive.</li>
+                        <li>• DFS uses very low memory but can fail in infinite-depth spaces.</li>
+                        <li>• UCS expands cheapest path cost first; optimal with positive step costs.</li>
+                        <li>• Greedy uses only heuristic and can be fast but suboptimal.</li>
+                        <li>• A* with admissible heuristic is complete and optimal.</li>
+                        <li>• Local search ignores path details and optimizes final state quality.</li>
+                        <li>• Genetic algorithms use population + fitness + crossover + mutation.</li>
+                    </ul>
+                </div>
+
+                <div class="mt-6 grid lg:grid-cols-2 gap-6">
+                    <details class="note-card p-5" open>
+                        <summary class="font-bold cursor-pointer">Frequently Asked Viva Questions</summary>
+                        <ul class="mt-3 text-sm space-y-1 text-slate-700">
+                            <li>1) Why is AI usually taught via rational agents? → It gives an actionable, measurable design objective.</li>
+                            <li>2) Difference between state space and search space? → Real configurations vs explored tree/graph abstraction.</li>
+                            <li>3) Why can BFS be impractical? → Exponential time and exponential memory.</li>
+                            <li>4) Why can DFS be useful? → Tiny memory footprint and fast deep discovery in dense solutions.</li>
+                            <li>5) Why is UCS preferred over BFS on weighted maps? → Finds cheapest path, not shortest depth.</li>
+                            <li>6) What is an admissible heuristic? → Never overestimates true remaining cost.</li>
+                            <li>7) Why is A* optimal with admissible h? → It never commits to a suboptimal goal too early.</li>
+                            <li>8) Why local search for 8-queens optimization? → Final arrangement matters more than path.</li>
+                            <li>9) How does random-restart help hill climbing? → Escapes local maxima by new starting points.</li>
+                            <li>10) Role of mutation in GA? → Maintains diversity and prevents premature convergence.</li>
+                        </ul>
+                    </details>
+
+                    <details class="note-card p-5" open>
+                        <summary class="font-bold cursor-pointer">Mini Formula Sheet</summary>
+                        <ul class="mt-3 text-sm space-y-1 text-slate-700 mono">
+                            <li>• BFS: Time O(b^d), Space O(b^d)</li>
+                            <li>• DFS: Time O(b^m), Space O(bm)</li>
+                            <li>• IDS: Time O(b^d), Space O(bd)</li>
+                            <li>• UCS expands min g(n)</li>
+                            <li>• Greedy expands min h(n)</li>
+                            <li>• A* expands min f(n) = g(n) + h(n)</li>
+                            <li>• Admissibility: h(n) ≤ h*(n)</li>
+                            <li>• SA acceptance (worse move): exp(-ΔE/T)</li>
+                        </ul>
+                    </details>
+                </div>
+
+                <div class="mt-6 note-card p-5 bg-indigo-50 border-indigo-200">
+                    <h3 class="font-bold text-lg text-indigo-800">Share Tip</h3>
+                    <p class="mt-2 text-sm text-indigo-900">Open this file in browser and send it directly to friends as a single-page revision handbook. You can also share the extracted text folder <span class="mono">week1_4_extract</span> for raw lecture text references.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="mt-8 text-center text-xs text-slate-500">
+            Built from local lecture materials (Week 1–4) • Updated for sharing and revision support.
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('copySummary').addEventListener('click', async () => {
+            const summary = `AI Week 1-4 Quick Summary\n\n`
+                + `Week 1: AI definitions, 4 approaches, intelligent agents, PEAS, environment types, agent types.\n`
+                + `Week 2: search formulation (initial state, actions, transition, goal test, path cost), state vs search space.\n`
+                + `Week 3: uninformed search (BFS, DFS, DLS, IDS, UCS), complexity and guarantees.\n`
+                + `Week 4: informed search (Greedy, A*), admissible heuristics, heuristic design.\n`
+                + `Week 4b: local search (hill climbing, simulated annealing, local beam, genetic algorithms).\n`;
+
+            try {
+                await navigator.clipboard.writeText(summary);
+                document.getElementById('copySummary').textContent = 'Copied!';
+                setTimeout(() => {
+                    document.getElementById('copySummary').textContent = 'Copy Quick Summary';
+                }, 1200);
+            } catch (error) {
+                document.getElementById('copySummary').textContent = 'Copy failed';
+                setTimeout(() => {
+                    document.getElementById('copySummary').textContent = 'Copy Quick Summary';
+                }, 1200);
+            }
+        });
+    </script>
+</body>
+</html>
